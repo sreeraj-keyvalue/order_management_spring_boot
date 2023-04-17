@@ -1,2 +1,19 @@
-create table "order".customer (id integer not null, created_at date, updated_at date, city varchar(255), email varchar(255), name varchar(255), phone varchar(255), profile_pic varchar(255), state varchar(255), street varchar(255), primary key (id));
-create sequence customer_seq start with 1 increment by 50;
+CREATE TABLE "order"."customer"
+(
+    "id" INTEGER NOT NULL,
+    "created_at" DATE NOT NULL,
+    "updated_at" DATE,
+    "city" VARCHAR(50),
+    "email" VARCHAR(50),
+    "name" VARCHAR(50),
+    "phone" VARCHAR(20),
+    "profile_pic" VARCHAR(255),
+    "state" VARCHAR(20),
+    "street" VARCHAR(20),
+    "country_code" INTEGER,
+    PRIMARY KEY ("id")
+);
+
+CREATE SEQUENCE "order"."customer_seq" 
+AS INTEGER
+START WITH 1 INCREMENT BY 50;

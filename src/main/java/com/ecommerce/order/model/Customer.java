@@ -22,4 +22,6 @@ public class Customer extends BaseEntity {
     private String state;
 
     private String profilePic;
+
+    private String countryCode;
 }
