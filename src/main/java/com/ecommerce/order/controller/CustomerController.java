@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ecommerce.order.dto.CreateCustomerDto;
 import com.ecommerce.order.dto.UpdateCustomerDto;
-import com.ecommerce.order.exception.ResourceNotFoundException;
+import com.ecommerce.order.exception.EntityNotFoundException;
 import com.ecommerce.order.model.Customer;
 import com.ecommerce.order.service.CustomerService;
 
@@ -32,7 +32,7 @@ public class CustomerController {
     }
 
     @GetMapping("/{id}")
-    public Customer findOne(@PathVariable Integer id) throws ResourceNotFoundException {
+    public Customer findOne(@PathVariable Integer id) throws EntityNotFoundException {
         return customerService.findOne(id);
     }
 
@@ -43,12 +43,12 @@ public class CustomerController {
 
     @PutMapping("/{id}")
     public Customer update(@PathVariable Integer id, @Valid @RequestBody UpdateCustomerDto customerDto)
-            throws ResourceNotFoundException {
+            throws EntityNotFoundException {
         return customerService.update(id, customerDto);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Integer id) throws ResourceNotFoundException {
+    public void delete(@PathVariable Integer id) throws EntityNotFoundException {
         customerService.delete(id);
     }
 }

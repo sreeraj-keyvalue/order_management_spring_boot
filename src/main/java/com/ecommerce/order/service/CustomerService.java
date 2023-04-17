@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.ecommerce.order.dto.CreateCustomerDto;
 import com.ecommerce.order.dto.UpdateCustomerDto;
-import com.ecommerce.order.exception.ResourceNotFoundException;
+import com.ecommerce.order.exception.EntityNotFoundException;
 import com.ecommerce.order.model.Customer;
 import com.ecommerce.order.repository.CustomerRepository;
 
@@ -21,10 +21,10 @@ public class CustomerService {
         return _repository.findAll();
     }
 
-    public Customer findOne(Integer id) throws ResourceNotFoundException {
+    public Customer findOne(Integer id) throws EntityNotFoundException {
         Optional<Customer> res = _repository.findById(id);
         if (!res.isPresent())
-            throw new ResourceNotFoundException("Entity not found");
+            throw new EntityNotFoundException(Customer.class);
 
         Customer customer = res.get();
         return customer;
@@ -43,7 +43,7 @@ public class CustomerService {
         return _repository.save(newCustomer);
     }
 
-    public Customer update(Integer id, UpdateCustomerDto customerDto) throws ResourceNotFoundException {
+    public Customer update(Integer id, UpdateCustomerDto customerDto) throws EntityNotFoundException {
         Customer customer = this.findOne(id);
 
         customer.setName(customerDto.getName());
@@ -57,7 +57,7 @@ public class CustomerService {
         return _repository.save(customer);
     }
 
-    public void delete(Integer id) throws ResourceNotFoundException {
+    public void delete(Integer id) throws EntityNotFoundException {
         Customer customer = this.findOne(id);
         _repository.delete(customer);
     }
