@@ -2,6 +2,8 @@ package com.ecommerce.order.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
@@ -18,6 +20,7 @@ public class Category extends BaseEntity {
 
     private Integer parentCategory;
 
-    @OneToMany
+    @OneToMany(mappedBy = "category")
+    @JsonIgnore
     private List<Product> products;
 }
