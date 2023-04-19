@@ -20,6 +20,9 @@ import com.ecommerce.order.model.OrderItem;
 import com.ecommerce.order.model.Product;
 import com.ecommerce.order.repository.OrderRepository;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 @Service
 public class OrderService {
 
@@ -62,6 +65,8 @@ public class OrderService {
             newOrderItems.add(newOrderItem);
         });
         newOrder.setOrderItems(newOrderItems);
+
+        log.info("Creating new order: {}", newOrder.toString());
 
         return _repository.save(newOrder);
     }
