@@ -8,7 +8,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class CommonException extends RuntimeException {
-    private HttpStatusCode statusCode;
-    private String errorCode;
-    private String message;
+    private final HttpStatusCode statusCode;
+    private final String errorCode;
+    private final String message;
 }

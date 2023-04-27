@@ -1,8 +1,9 @@
 package com.ecommerce.order.exception;
 
-import lombok.NoArgsConstructor;
+import lombok.experimental.UtilityClass;
 
-@NoArgsConstructor
+@UtilityClass
 public class ExceptionCodes {
     public static final String ENTITY_NOT_FOUND = "ENTITY_NOT_FOUND";
+    public static final String VALIDATION_ERROR = "VALIDATION_ERROR";
 }
