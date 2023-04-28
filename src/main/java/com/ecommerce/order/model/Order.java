@@ -1,9 +1,6 @@
 package com.ecommerce.order.model;
 
-import java.util.List;
-
 import com.ecommerce.order.constants.OrderStatus;
-
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -14,6 +11,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -29,15 +27,17 @@ import lombok.Setter;
 @Table(name = "\"order\"")
 public class Order extends BaseEntity {
 
-    @Nonnull
-    @ManyToOne
-    @JoinColumn
-    private Customer customer;
+  @Nonnull
+  @ManyToOne
+  @JoinColumn
+  private Customer customer;
 
-    @Nonnull
-    @Enumerated(EnumType.STRING)
-    private OrderStatus status;
+  @Nonnull
+  @Enumerated(EnumType.STRING)
+  private OrderStatus status;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "order", orphanRemoval = true, fetch = FetchType.EAGER)
-    private List<OrderItem> orderItems;
+  @OneToMany(cascade = CascadeType.ALL, mappedBy = "order", orphanRemoval = true,
+      fetch = FetchType.EAGER)
+  private List<OrderItem> orderItems;
+
 }

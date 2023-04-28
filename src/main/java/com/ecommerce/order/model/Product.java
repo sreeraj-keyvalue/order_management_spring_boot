@@ -18,16 +18,17 @@ import lombok.Setter;
 @Entity
 public class Product extends BaseEntity {
 
-    @Nonnull
-    private String name;
+  @Nonnull
+  private String name;
 
-    @ManyToOne
-    @JoinColumn
-    private Category category;
+  @ManyToOne
+  @JoinColumn
+  private Category category;
 
-    private String image;
+  private String image;
 
-    private String description;
+  private String description;
 
-    private double unitPrice;
+  private double unitPrice;
+
 }

@@ -11,10 +11,11 @@ import lombok.Setter;
 @Builder
 public class CreateOrderItemDto {
 
-    @NotNull
-    private Integer productId;
+  @NotNull
+  private Integer productId;
 
-    @NotNull
-    @Min(1)
-    private Integer quantity;
+  @NotNull
+  @Min(1)
+  private Integer quantity;
+
 }

@@ -11,34 +11,35 @@ import lombok.Setter;
 @Setter
 public class CreateCustomerDto {
 
-    @NotEmpty
-    @NotNull
-    @Size(min = 2, message = "Name must have at least 2 characters")
-    private String name;
+  @NotEmpty
+  @NotNull
+  @Size(min = 2, message = "Name must have at least 2 characters")
+  private String name;
 
-    @NotEmpty
-    @NotNull
-    private String phone;
+  @NotEmpty
+  @NotNull
+  private String phone;
 
-    @NotEmpty
-    @NotNull
-    @Email
-    private String email;
+  @NotEmpty
+  @NotNull
+  @Email
+  private String email;
 
-    @NotNull
-    @NotEmpty
-    @Size(min = 2, message = "Street must have at least 2 characters")
-    private String street;
+  @NotNull
+  @NotEmpty
+  @Size(min = 2, message = "Street must have at least 2 characters")
+  private String street;
 
-    @NotNull
-    @NotEmpty
-    @Size(min = 2, message = "City must have at least 2 characters")
-    private String city;
+  @NotNull
+  @NotEmpty
+  @Size(min = 2, message = "City must have at least 2 characters")
+  private String city;
 
-    @NotNull
-    @NotEmpty
-    @Size(min = 2, message = "State must have at least 2 characters")
-    private String state;
+  @NotNull
+  @NotEmpty
+  @Size(min = 2, message = "State must have at least 2 characters")
+  private String state;
 
-    private String profilePic;
+  private String profilePic;
+
 }

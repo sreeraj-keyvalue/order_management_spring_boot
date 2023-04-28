@@ -15,19 +15,20 @@ import lombok.Setter;
 @Entity
 public class Customer extends BaseEntity {
 
-    private String name;
+  private String name;
 
-    private String phone;
+  private String phone;
 
-    private String email;
+  private String email;
 
-    private String street;
+  private String street;
 
-    private String city;
+  private String city;
 
-    private String state;
+  private String state;
 
-    private String profilePic;
+  private String profilePic;
 
-    private String countryCode;
+  private String countryCode;
+
 }

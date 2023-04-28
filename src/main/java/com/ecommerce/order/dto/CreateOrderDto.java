@@ -1,10 +1,9 @@
 package com.ecommerce.order.dto;
 
-import java.util.List;
-
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import java.util.List;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,10 +12,11 @@ import lombok.Setter;
 @Setter
 @Builder
 public class CreateOrderDto {
-    @NotNull
-    private Integer customerId;
+  @NotNull
+  private Integer customerId;
 
-    @NotEmpty
-    @Valid
-    private List<CreateOrderItemDto> orderItems;
+  @NotEmpty
+  @Valid
+  private List<CreateOrderItemDto> orderItems;
+
 }

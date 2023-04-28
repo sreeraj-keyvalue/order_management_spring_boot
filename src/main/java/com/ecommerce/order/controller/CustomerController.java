@@ -1,7 +1,12 @@
 package com.ecommerce.order.controller;
 
+import com.ecommerce.order.dto.CreateCustomerDto;
+import com.ecommerce.order.dto.UpdateCustomerDto;
+import com.ecommerce.order.exception.EntityNotFoundException;
+import com.ecommerce.order.model.Customer;
+import com.ecommerce.order.service.CustomerService;
+import jakarta.validation.Valid;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,43 +17,37 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ecommerce.order.dto.CreateCustomerDto;
-import com.ecommerce.order.dto.UpdateCustomerDto;
-import com.ecommerce.order.exception.EntityNotFoundException;
-import com.ecommerce.order.model.Customer;
-import com.ecommerce.order.service.CustomerService;
-
-import jakarta.validation.Valid;
-
 @RestController
 @RequestMapping(path = "/customers")
 public class CustomerController {
-    @Autowired
-    private CustomerService customerService;
 
-    @GetMapping("/")
-    public List<Customer> findAll() {
-        return customerService.findAll();
-    }
+  @Autowired
+  private CustomerService customerService;
 
-    @GetMapping("/{id}")
-    public Customer findOne(@PathVariable Integer id) throws EntityNotFoundException {
-        return customerService.findOne(id);
-    }
+  @GetMapping("/")
+  public List<Customer> findAll() {
+    return customerService.findAll();
+  }
 
-    @PostMapping("/")
-    public Customer create(@Valid @RequestBody CreateCustomerDto customerDto) {
-        return customerService.create(customerDto);
-    }
+  @GetMapping("/{id}")
+  public Customer findOne(@PathVariable Integer id) throws EntityNotFoundException {
+    return customerService.findOne(id);
+  }
 
-    @PutMapping("/{id}")
-    public Customer update(@PathVariable Integer id, @Valid @RequestBody UpdateCustomerDto customerDto)
-            throws EntityNotFoundException {
-        return customerService.update(id, customerDto);
-    }
+  @PostMapping("/")
+  public Customer create(@Valid @RequestBody CreateCustomerDto customerDto) {
+    return customerService.create(customerDto);
+  }
 
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Integer id) throws EntityNotFoundException {
-        customerService.delete(id);
-    }
+  @PutMapping("/{id}")
+  public Customer update(@PathVariable Integer id,
+      @Valid @RequestBody UpdateCustomerDto customerDto) throws EntityNotFoundException {
+    return customerService.update(id, customerDto);
+  }
+
+  @DeleteMapping("/{id}")
+  public void delete(@PathVariable Integer id) throws EntityNotFoundException {
+    customerService.delete(id);
+  }
+
 }

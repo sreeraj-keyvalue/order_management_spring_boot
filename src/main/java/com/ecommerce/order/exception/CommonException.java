@@ -1,14 +1,15 @@
 package com.ecommerce.order.exception;
 
-import org.springframework.http.HttpStatusCode;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import org.springframework.http.HttpStatusCode;
 
 @Getter
 @AllArgsConstructor
 public class CommonException extends RuntimeException {
-    private final HttpStatusCode statusCode;
-    private final String errorCode;
-    private final String message;
+
+  private final HttpStatusCode statusCode;
+  private final String errorCode;
+  private final String message;
+
 }

@@ -1,7 +1,6 @@
 package com.ecommerce.order.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -21,18 +20,19 @@ import lombok.Setter;
 @Entity
 public class OrderItem extends BaseEntity {
 
-    @Nonnull
-    @ManyToOne
-    @JoinColumn(name = "order_id", nullable = false)
-    @JsonIgnore
-    private Order order;
+  @Nonnull
+  @ManyToOne
+  @JoinColumn(name = "order_id", nullable = false)
+  @JsonIgnore
+  private Order order;
 
-    @Nonnull
-    @ManyToOne
-    @JoinColumn
-    private Product product;
+  @Nonnull
+  @ManyToOne
+  @JoinColumn
+  private Product product;
 
-    @Nonnull
-    @Min(1)
-    private Integer quantity;
+  @Nonnull
+  @Min(1)
+  private Integer quantity;
+
 }
