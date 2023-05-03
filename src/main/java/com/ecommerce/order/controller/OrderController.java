@@ -14,18 +14,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/orders")
+@RequestMapping(path = "/orders/")
 public class OrderController {
 
   @Autowired
   private OrderService orderService;
 
-  @GetMapping("/")
-  public Page<Order> findAll() {
-    return orderService.findAll(0, 5);
+  @GetMapping
+  public Page<Order> findAll(@RequestParam Integer page, @RequestParam Integer size) {
+    return orderService.findAll(page, size);
   }
 
   @GetMapping("/{id}")
