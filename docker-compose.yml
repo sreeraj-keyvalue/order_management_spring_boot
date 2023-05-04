@@ -25,3 +25,19 @@ services:
       POSTGRES_DB: order_management
     ports:
       - "5432:5432"
+
+  migrate-down:
+    image: redgate/flyway:9-alpine
+    profiles:
+      - migration
+    command: -url=jdbc:postgresql://postgres:5432/order_management -schemas=order -user=postgres -password=postgres undo
+    volumes:
+      - ./src/main/resources/db/migration:/flyway/sql
+
+  migrate-up:
+    image: redgate/flyway:9-alpine
+    profiles:
+      - migration
+    command: -url=jdbc:postgresql://postgres:5432/order_management -schemas=order -user=postgres -password=postgres migrate
+    volumes:
+      - ./src/main/resources/db/migration:/flyway/sql
