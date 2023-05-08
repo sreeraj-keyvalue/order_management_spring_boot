@@ -30,14 +30,10 @@ public class CustomerService {
   }
 
   public Customer create(CreateCustomerDto customerDto) {
-    Customer newCustomer = new Customer();
-    newCustomer.setName(customerDto.getName());
-    newCustomer.setEmail(customerDto.getEmail());
-    newCustomer.setPhone(customerDto.getPhone());
-    newCustomer.setStreet(customerDto.getStreet());
-    newCustomer.setCity(customerDto.getCity());
-    newCustomer.setState(customerDto.getState());
-    newCustomer.setProfilePic(customerDto.getProfilePic());
+    Customer newCustomer = Customer.builder().name(customerDto.getName())
+        .email(customerDto.getEmail()).phone(customerDto.getPhone()).street(customerDto.getStreet())
+        .city(customerDto.getCity()).state(customerDto.getState())
+        .profilePic(customerDto.getProfilePic()).build();
 
     return customerRepository.save(newCustomer);
   }
@@ -45,15 +41,14 @@ public class CustomerService {
   public Customer update(Integer id, UpdateCustomerDto customerDto) throws EntityNotFoundException {
     Customer customer = this.findOne(id);
 
-    customer.setName(customerDto.getName());
-    customer.setEmail(customerDto.getEmail());
-    customer.setPhone(customerDto.getPhone());
-    customer.setStreet(customerDto.getStreet());
-    customer.setCity(customerDto.getCity());
-    customer.setState(customerDto.getState());
-    customer.setProfilePic(customerDto.getProfilePic());
+    Customer updatedCustomer = Customer.builder().name(customerDto.getName())
+        .email(customerDto.getEmail()).phone(customerDto.getPhone()).street(customerDto.getStreet())
+        .city(customerDto.getCity()).state(customerDto.getState())
+        .profilePic(customerDto.getProfilePic()).build();
 
-    return customerRepository.save(customer);
+    updatedCustomer.setId(id);
+
+    return customerRepository.save(updatedCustomer);
   }
 
   public void delete(Integer id) throws EntityNotFoundException {

@@ -7,5 +7,6 @@ public class ExceptionCodes {
 
   public static final String ENTITY_NOT_FOUND = "ENTITY_NOT_FOUND";
   public static final String VALIDATION_ERROR = "VALIDATION_ERROR";
+  public static final String INTERNAL_SERVER_ERROR = "INTERNAL_SERVER_ERROR";
 
 }
