@@ -40,6 +40,9 @@ public class CreateCustomerDto {
   @Size(min = 2, message = "State must have at least 2 characters")
   private String state;
 
+  @NotNull
+  private Integer countryCode;
+
   private String profilePic;
 
 }
